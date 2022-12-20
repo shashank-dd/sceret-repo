@@ -7,6 +7,7 @@ import eye from './images/open-eye.png'
 import tag from './images/tag.png'
 import user from './images/avatar.png'
 import search from './images/search.png'
+import plus from './images/plus.png'
 import "./homepage.css"
 function HomePage(){
     return(
@@ -14,7 +15,7 @@ function HomePage(){
             <div className='div1'>
                 <div className='logo'>Logo</div>
                 <div className='left-navbar'>
-                <p className='blue'><img className='home' src={home} alt="1"/> Property</p>
+                <p className='blue'><img  id='blue' className='home' src={home} alt="1"/> Property</p>
                 <p className='grey'><img className='home' src={bell} alt="2"/> Assistance</p>
                 <p className='grey'><img className='home' src={download} alt="3"/> Recieved Intrest</p>
                 <p className='grey'><img className='home' src={upload} alt="4"/> Sent Intrest</p>
@@ -35,13 +36,38 @@ function HomePage(){
                 </div>
                 <div className='line'></div>
                 <div className='div3'>
-                    <div className='searchbar'>
+                  <div className='searchbar'>
                     <input type="text" placeholder="search PPD ID"/>
+                    <div className='vline'></div>
                     <img src={search} alt="8"/>
                     </div>
+                    <div className='property'>
+                        <img src={plus} alt=""/>
+                        <span>Add Property</span>
+                    </div>
+                  </div>
+                       <table>
+                            <thead>
+                                <th>
+                                <td>PPD ID</td>
+                                <td>Image</td>
+                                <td>Property</td>
+                                <td>Contact</td>
+                                <td>Area</td>
+                                <td>Views</td>
+                                <td>Status</td>
+                                <td>Days Left</td>
+                                <td>Action</td>
+                                </th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-        </div>
     )
 }
 export default HomePage;
