@@ -169,29 +169,3 @@ span{
 #blue{
     background: #2289FF;
 }
-table{
-    margin-left: 50px;
-    margin-top: 130px;
-}
-thead{
-    height: 65px;
-width: 1101px;
-left: 362px;
-top: 255px;
-border-radius: 15px;
-position: absolute;
-left: 4%;
-right: 2.31%;
-top: 23.61%;
-bottom: 70.37%;
-
-background: #FFFFFF;
-}
-thead th td{
-height: 25px;
-width: 77px;
-border-radius: nullpx;
-color: #284E91;
-padding-top: 8px;
-padding-left: 35px;
-}
