@@ -1,0 +1,73 @@
+.homepage{
+    width: 1006px;
+    height: 1080px;
+    position: absolute;
+    left: 0%;
+    right: -0.31%;
+    top: 0%;
+    bottom: 0%;
+    background: #E1F9F4;
+}
+
+.div1{
+    width: 320px;
+    height: 1080px;
+}
+
+.div2{
+    height: 1080px;
+    width: 1285px;
+    left: 320px;
+    top: 0px;
+    border-radius: 0px;
+    position: absolute;
+    left: 20%;
+    right: -0.31%;
+    top: 0%;
+    bottom: 0%;
+    background: #FAFBFC;
+}
+
+.logo{
+    letter-spacing: 0em;
+    text-align: left;
+    position: absolute;
+    left: 5%;
+    right: 88.62%;
+    top: 4.17%;
+    bottom: 91.76%;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 44px;
+    color: #1A1B1C;
+}
+
+.left-navbar{
+    height: 385px;
+    width: 172px;
+    position: absolute;
+    left: 2%;
+    right: 83.25%;
+    top: 15.74%;
+    bottom: 48.61%;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 35px;
+}
+.grey{
+    color: gray;
+}
+.blue{
+    color: #2289FF;
+}
+.home{
+    height: 18px;
+    width: 22px;
+    left: 46px;
+    top: 179px;
+    border-radius: 0px;
+}
