@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './Register.css'
 let Register = () =>{
     return(
@@ -19,10 +20,10 @@ let Register = () =>{
                 <div>
                     <input type="text" placeholder="ConformPassword" />
                 </div>
-                <button>Signup</button>
+               <Link  to="/"><button>Signup</button></Link>    
                 </div>
                 <div className="child-div">
-                    <p>signIn</p>
+                    <Link   to="/"><p>signIn</p></Link>
                 </div>
               
           
