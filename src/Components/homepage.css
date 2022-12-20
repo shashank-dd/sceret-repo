@@ -42,6 +42,8 @@
     font-size: 35px;
     line-height: 44px;
     color: #1A1B1C;
+    /* display: flex;
+    flex-direction: column; */
 }
 
 .left-navbar{
@@ -70,4 +72,31 @@
     left: 46px;
     top: 179px;
     border-radius: 0px;
+}
+.header{
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+}
+.user img{
+    height: 22.231679916381836px;
+    width: 18.479999542236328px;
+    left: 1412.550048828125px;
+    top: 52.34832763671875px;
+    border-radius: 0px;
+    }
+.userid{
+    margin-top: 10px;
+    margin-left: 25px;
+}
+.user{
+    margin-top: 20px;
+    margin-left: 75%;
+}    
+.line{
+height: 3px;
+width: 1285px;
+border-radius: 0px;
+position: absolute;
+background: #E1F9F4;
 }

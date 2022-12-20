@@ -1,10 +1,11 @@
 import React from 'react';
-import home from '../components/images/home.png'
-import bell from '../components/images/bell.png'
-import download from '../components/images/download.png'
-import upload from '../components/images/upload.png'
-import eye from '../components/images/open-eye.png'
-import tag from '../components/images/tag.png'
+import home from './images/home.png'
+import bell from './images/bell.png'
+import download from './images/download.png'
+import upload from './images/upload.png'
+import eye from './images/open-eye.png'
+import tag from './images/tag.png'
+import user from './images/avatar.png'
 import "./homepage.css"
 function HomePage(){
     return(
@@ -20,7 +21,20 @@ function HomePage(){
                 <p className='grey'><img className='home' src={tag} alt="6"/> Tarrif Plan</p>
                 </div>
             </div>
-            <div className='div2'></div>
+            <div className='div2'>
+                <div className='header'>
+                    <div className='userid'><p>USER ID : 06PPD2357</p></div>
+                    <div className='user'>
+                    <img src={user} alt="7"/>
+                  <select>
+                        <option selected>User Name</option>
+                        <option>Log out</option>
+                    </select>
+                  </div>
+                </div>
+                <div className='line'></div>
+                <div className='div3'></div>
+            </div>
         </div>
     )
 }
