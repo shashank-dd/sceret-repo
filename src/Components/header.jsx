@@ -1,6 +1,8 @@
 import React from "react";
 import './homepage.css';
 import user from './images/avatar.png'
+
+
 function Header(){
     return(
         <div className='header'>
