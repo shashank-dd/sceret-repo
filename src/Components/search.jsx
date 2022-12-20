@@ -1,6 +1,7 @@
 import React from "react";
 import search from './images/search.png'
 import plus from './images/plus.png'
+import './search.css'
 function Search(){
     return(
         <div className='div3'>
