@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {BrowserRouter,Routes,Route} from "react-router-dom"
+import Basicinfo from './Components/basicinfo';
 import Homepage from './Components/homepage';
 import Login from './Components/Login';
 import Register from './Components/Register';
@@ -17,6 +18,7 @@ root.render(
       <Route path='/'element={<Login/>}/>
       <Route path='/register'element={<Register/>}/>
       <Route path='/homepage'element={<Homepage/>}/>
+      <Route path='/basicinfo'element={<Basicinfo/>}/>
     </Routes>
     </BrowserRouter>
     
