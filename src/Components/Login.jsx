@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './Login.css'
 let Login = () =>{
     return(
@@ -17,14 +18,14 @@ let Login = () =>{
                     <input type="text" placeholder="Password" />
                 </div>
                 
-                <button>SignIn</button>
+               <button>SignIn</button>
                 <div >
-                    <p>signUp</p>
+                  <Link   to="/register">  <p>signUp</p></Link>
                 </div>
                 </div>
                 
                 <div className="child-div">
-                    Dont have account?Signup
+                    Dont have account?  <Link to="/register">  <p>Signup </p></Link>
                 </div>
               
           
