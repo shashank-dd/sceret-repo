@@ -6,6 +6,7 @@ import upload from './images/upload.png'
 import eye from './images/open-eye.png'
 import tag from './images/tag.png'
 import user from './images/avatar.png'
+import search from './images/search.png'
 import "./homepage.css"
 function HomePage(){
     return(
@@ -33,7 +34,12 @@ function HomePage(){
                   </div>
                 </div>
                 <div className='line'></div>
-                <div className='div3'></div>
+                <div className='div3'>
+                    <div className='searchbar'>
+                    <input type="text" placeholder="search PPD ID"/>
+                    <img src={search} alt="8"/>
+                    </div>
+                </div>
             </div>
         </div>
     )
