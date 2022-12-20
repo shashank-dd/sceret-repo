@@ -17,8 +17,6 @@
 .div2{
     height: 1080px;
     width: 1285px;
-    left: 320px;
-    top: 0px;
     border-radius: 0px;
     position: absolute;
     left: 20%;
@@ -42,8 +40,6 @@
     font-size: 35px;
     line-height: 44px;
     color: #1A1B1C;
-    /* display: flex;
-    flex-direction: column; */
 }
 
 .left-navbar{
@@ -100,6 +96,6 @@ select{
 height: 3px;
 width: 1285px;
 border-radius: 0px;
-position: absolute;
+/* position: absolute; */
 background: #E1F9F4;
 }
