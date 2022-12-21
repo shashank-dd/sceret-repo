@@ -25,7 +25,7 @@ let Login = () =>{
                 </div>
                 
                 <div className="child-div">
-                    Dont have account?  <Link to="/">  <p>Signup </p></Link>
+                    Dont have account?  <Link to="/register">  <p>Signup </p></Link>
                 </div>
               
           

@@ -23,7 +23,7 @@ let Register = () =>{
                <Link  to="/"><button className="buttons">Signup</button></Link>    
                 </div>
                 <div className="child-div">
-                    <Link   to="/homepage"><p>signIn</p></Link>
+                    <Link   to="/"><p>signIn</p></Link>
                 </div>
               
           
