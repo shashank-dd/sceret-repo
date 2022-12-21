@@ -111,8 +111,7 @@ function Basicinfo() {
 
                         </select>
 
-                        <button id='opgg'>cancel</button>
-                        <button id='ophgg'>continue</button>
+                    
 
 
 
