@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import './Register.css'
 let Register = () =>{
     return(
-        <div className="card-container">
+        <div className="card-containers">
            
-                <div className="register">
+                <div className="registers">
                 <div>
-                   <h1 className="logo">Logo</h1>
+                   <h1 className="logos">Logo</h1>
 
                 </div>
-                <div className="create">Create New Account </div>
+                <div className="creates">Create New Account </div>
                 <div>
                     <input type="text" placeholder="MaildID" />
                 </div>
@@ -20,7 +20,7 @@ let Register = () =>{
                 <div>
                     <input type="text" placeholder="ConformPassword" />
                 </div>
-               <Link  to="/"><button>Signup</button></Link>    
+               <Link  to="/"><button className="buttons">Signup</button></Link>    
                 </div>
                 <div className="child-div">
                     <Link   to="/homepage"><p>signIn</p></Link>

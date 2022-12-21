@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 import Basicinfo from './Components/basicinfo';
 import Homepage from './Components/homepage';
+import LocationInfo from './Components/Locationinfo';
 import Login from './Components/Login';
 import Register from './Components/Register';
 import './index.css';
@@ -19,6 +20,7 @@ root.render(
       <Route path='/register'element={<Register/>}/>
       <Route path='/homepage'element={<Homepage/>}/>
       <Route path='/basicinfo'element={<Basicinfo/>}/>
+      <Route path="/locationinfo" element={<LocationInfo/>}/>
     </Routes>
     </BrowserRouter>
     
