@@ -104,7 +104,6 @@ function Genralinfo() {
                        </div>
                        </div>
                        <div className='add'>Add Photo</div> 
-
                        <button className='prev'><span id='previous'>Previous</span></button>
                        <button className='save'><span id='cont'>Save & Continue</span></button>
                     </div>   
