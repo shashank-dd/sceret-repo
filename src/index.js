@@ -4,6 +4,7 @@ import {BrowserRouter,Routes,Route} from "react-router-dom"
 import Basicinfo from './Components/basicinfo';
 import Generalinfo from './Components/generalinfo';
 import Homepage from './Components/homepage';
+import LocationInfo from './Components/Locationinfo';
 import Login from './Components/Login';
 import Property from './Components/property';
 import Register from './Components/Register';
@@ -21,6 +22,7 @@ root.render(
       <Route path='/register'element={<Register/>}/>
       <Route path='/homepage'element={<Homepage/>}/>
       <Route path='/basicinfo'element={<Basicinfo/>}/>
+
 
     </Routes>
     </BrowserRouter>    
