@@ -1,3 +1,4 @@
+
 import React from 'react';
 import home from './images/home.png'
 import bell from './images/bell.png'
@@ -121,9 +122,11 @@ function Basicinfo() {
 
 
 
+
             </div>
         </div>
 
     )
 }
 export default Basicinfo;
+

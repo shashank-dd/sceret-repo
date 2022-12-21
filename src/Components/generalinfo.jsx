@@ -6,7 +6,7 @@ import upload from './images/upload.png'
 import eye from './images/open-eye.png'
 import tag from './images/tag.png'
 import user from './images/avatar.png'
-// import camera from './images/camera.png'
+import camera from './images/camera.png'
 import "./g.css"
 function Genralinfo() {
     return (
@@ -95,9 +95,20 @@ function Genralinfo() {
                             <option value="2">g</option>
 
                         </select>
+                        <div className='md'>
+                       <div className="image">
+                        <label htmlFor='file'>
+                        <img src={camera} alt='cam'/>
+                        </label>
+                       <input id="file" type="file" />
+                       </div>
+                       </div>
+                       <div className='add'>Add Photo</div> 
 
-                    </div>
-                </div>
+                       <button className='prev'><span id='previous'>Previous</span></button>
+                       <button className='save'><span id='cont'>Save & Continue</span></button>
+                    </div>   
+                    </div> 
             </div>
         </div>
        
