@@ -5,7 +5,7 @@ import Basicinfo from './Components/basicinfo';
 import Generalinfo from './Components/generalinfo';
 import Homepage from './Components/homepage';
 import Login from './Components/Login';
-import Property from './Components/property';
+// import Property from './Components/property';
 import Register from './Components/Register';
 import './index.css';
 //import App from './App';
@@ -21,7 +21,7 @@ root.render(
       <Route path='/register'element={<Register/>}/>
       <Route path='/homepage'element={<Homepage/>}/>
       <Route path='/basicinfo'element={<Basicinfo/>}/>
-
+      <Route path='/generalinfo'element={<Generalinfo/>}/>
     </Routes>
     </BrowserRouter>    
   </React.StrictMode>

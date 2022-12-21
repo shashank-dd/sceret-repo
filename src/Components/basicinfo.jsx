@@ -108,16 +108,9 @@ function Basicinfo() {
                             <option selected>Select property type</option>
                             <option value="1">One</option>
                             <option value="2">g</option>
-
                         </select>
-
-
-
-
-
                     </div>
                 </div>
-
 
 
             </div>
