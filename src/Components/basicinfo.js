@@ -9,7 +9,7 @@ import user from './images/avatar.png'
 import "./basicinfo.css"
 function Basicinfo() {
     return (
-             <div className='homepage'>
+        <div className='homepage'>
             <div className='div1'>
                 <div className='logo'>Logo</div>
                 <div className='left-navbar'>
@@ -111,7 +111,8 @@ function Basicinfo() {
 
                         </select>
 
-
+                        <button id='opgg'>cancel</button>
+                        <button id='ophgg'>continue</button>
 
 
 
@@ -122,7 +123,7 @@ function Basicinfo() {
 
             </div>
         </div>
-       
+
     )
 }
 export default Basicinfo;
