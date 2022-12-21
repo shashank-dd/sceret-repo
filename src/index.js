@@ -4,6 +4,7 @@ import {BrowserRouter,Routes,Route} from "react-router-dom"
 import Basicinfo from './Components/basicinfo';
 import Homepage from './Components/homepage';
 import Login from './Components/Login';
+import Property from './Components/property';
 import Register from './Components/Register';
 import './index.css';
 //import App from './App';
@@ -19,6 +20,7 @@ root.render(
       <Route path='/register'element={<Register/>}/>
       <Route path='/homepage'element={<Homepage/>}/>
       <Route path='/basicinfo'element={<Basicinfo/>}/>
+      <Route path='/property'element={<Property/>}/>
     </Routes>
     </BrowserRouter>
     
