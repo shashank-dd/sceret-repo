@@ -22,6 +22,10 @@ root.render(
       <Route path='/register'element={<Register/>}/>
       <Route path='/homepage'element={<Homepage/>}/>
       <Route path='/basicinfo'element={<Basicinfo/>}/>
+      <Route path='/basicinfo'element={<Property/>}/>
+      <Route path='/basicinfo'element={<Generalinfo/>}/>
+      <Route path='/basicinfo'element={<LocationInfo/>}/>
+      
 
 
     </Routes>
