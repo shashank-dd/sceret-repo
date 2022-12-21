@@ -119,3 +119,14 @@ function Basicinfo() {
 
                     </div>
                 </div>
+
+
+
+
+            </div>
+        </div>
+
+    )
+}
+export default Basicinfo;
+
