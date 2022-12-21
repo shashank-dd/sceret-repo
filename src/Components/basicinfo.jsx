@@ -9,7 +9,7 @@ import user from './images/avatar.png'
 import "./basicinfo.css"
 function Basicinfo() {
     return (
-             <div className='homepage'>
+        <div className='homepage'>
             <div className='div1'>
                 <div className='logo'>Logo</div>
                 <div className='left-navbar'>
@@ -108,14 +108,22 @@ function Basicinfo() {
                             <option selected>Select property type</option>
                             <option value="1">One</option>
                             <option value="2">g</option>
+
                         </select>
+
+                        <button id='opgg'>cancel</button>
+                        <button id='ophgg'>continue</button>
+
+
+
                     </div>
                 </div>
 
 
+
             </div>
         </div>
-       
+
     )
 }
 export default Basicinfo;
