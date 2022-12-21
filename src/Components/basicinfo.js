@@ -9,7 +9,7 @@ import user from './images/avatar.png'
 import "./basicinfo.css"
 function Basicinfo() {
     return (
-        <div className='o'>
+        
             <div className='homepage'>
                 <div className='div1'>
                     <div className='logo'>Logo</div>
@@ -118,7 +118,7 @@ function Basicinfo() {
 
 
                         </div>
-                    </div>
+                 
 
 
 
