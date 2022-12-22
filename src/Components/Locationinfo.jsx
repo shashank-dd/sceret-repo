@@ -9,6 +9,8 @@ import user from './images/avatar.png'
 import { Link } from 'react-router-dom';
 import "./Locationinfo.css"
 function Basicinfo() {
+
+    
     return (
         <div className='o'>
              <div className='homepagej'>
