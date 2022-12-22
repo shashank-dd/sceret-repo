@@ -15,16 +15,17 @@ let Register = () =>{
 
     }
     async function submithandler  (e){
-       
+       e.preventDefault()
         setformerrors(validate(user))
         console.log(user)
-        const config ={
+       /*  const config ={
             headers: {
-                'content-type': 'text/json'
+                'Content-Type': 'application/json'
             }
           }
-       const   data=await  axios.post("http://localhost:8080/register/register", user, config)
-            console.log(data)
+       const   data=await  axios.post("http://localhost:5000/register/register", user, config)
+            console.log(data) */
+            axios.post("http://localhost:5000/register/register",user).then(response =>{console.log(response)}).catch(error =>{console.log(error)})
         //await fetch("http://localhost:8080/register/register", { method: 'post', body: user }).then((res) => res.json()).then((data) => { console.log(data); }).catch((e) => console.log(e))
     }
     
@@ -51,7 +52,7 @@ let Register = () =>{
         <div className="card-containers">
            
            
-               
+               <form action=""  onSubmit={submithandler}>
                 <div className="registers">
                 <div>
                    <h1 className="logos">Logo</h1>
@@ -67,9 +68,9 @@ let Register = () =>{
                 <div>
                     <input type="password" placeholder="ConformPassword" name="confirmpassword" onChange={Changehandler} />
                 </div>
-              <Link to='/'><button className="buttons" onSubmit={submithandler} >Signup</button></Link>
+             <button className="buttons" >Signup</button>
                 </div>
-                
+                </form>
                 <div className="child-div">
                     <Link   to="/"><p>signIn</p></Link>
                 </div>
