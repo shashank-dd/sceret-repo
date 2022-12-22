@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import home from './images/home.png'
 import bell from './images/bell.png'
 import download from './images/download.png'
@@ -10,8 +10,28 @@ import "./gg/property.css"
 import { Link, useLocation } from 'react-router-dom';
 
 function Property() {
+    const [sd,setsd]=useState({
     
-    const location=useLocation();
+        length:          null,
+        breadth:            null,
+        totalarea:        null,
+        areaunit:        "",
+        noofbhk:         null,
+        nooffloors:      null,
+        attached:        "",
+        westerntoilet:      null,
+        furnished:            "",
+        carparking:      "",
+        lift:      "",
+        electricity:        "",
+        facing:         "",
+       
+      })
+      const location=useLocation();
+      useEffect(()=>{
+       setsd({...location.state,...sd})
+      },[])
+     
     console.log(location.state,"lll")
     return (
 
@@ -63,18 +83,18 @@ function Property() {
 
 
                         <label className='p1i'>Length</label>
-                        <input className='g1i' placeholder='Example: 1000'></input>
+                        <input className='g1i' placeholder='Example: 1000' onChange={(e)=>{setsd({...sd,length:e.target.value})}}></input>
 
 
                         <label className='p2i'>Breadth</label>
 
-                        <input className='g2i' placeholder='Example: 1000'></input>
+                        <input className='g2i' placeholder='Example: 1000'   onChange={(e)=>{setsd({...sd, breadth:e.target.value})}}></input>
 
                         <label className='p3i'>Total area</label>
-                        <input className='g3i' placeholder='Example: 7500'></input>
+                        <input className='g3i' placeholder='Example: 7500' onChange={(e)=>{setsd({...sd,totalarea:e.target.value})}}></input>
                         <label className='p4i'> Area unit</label>
 
-                        <select className='g4i' >
+                        <select className='g4i' onChange={(e)=>{setsd({...sd, areaunit:e.target.value})}} >
                             <option selected> si unit</option>
                             <option value="1">mili meter square</option>
                             <option value="2">meter square</option>
@@ -82,7 +102,7 @@ function Property() {
                         </select> 
                         <label className='p5i'>No of bhk</label>
 
-                        <select className='g5i' >
+                        <select className='g5i' onChange={(e)=>{setsd({...sd,noofbhk:e.target.value})}}>
                             <option selected> no of bhk</option>
                             <option value="1">3</option>
                             <option value="2">5</option>
@@ -90,14 +110,14 @@ function Property() {
                         </select>
                         <label className='p6i'>No of floor</label>
 
-                        <select className='g6i' >
+                        <select className='g6i'  onChange={(e)=>{setsd({...sd, nooffloors:e.target.value})}} >
                             <option selected> no of floor</option>
                             <option value="1">2</option>
                             <option value="2">3</option>
 
                         </select>
                         <label className='p7i'>Attached</label>
-                        <select className='g7i' >
+                        <select className='g7i'  onChange={(e)=>{setsd({...sd, attached:e.target.value})}}>
                             <option selected>Select  type</option>
                             <option value="1">yes</option>
                             <option value="2">no</option>
@@ -105,7 +125,7 @@ function Property() {
                         </select>
                         <label className='p8i'>No of western toilet </label>
 
-                        <select className='g8i' >
+                        <select className='g8i' onChange={(e)=>{setsd({...sd,westerntoilet:e.target.value})}} >
                             <option selected>Select no</option>
                             <option value="1">4</option>
                             <option value="2">6</option>
@@ -114,7 +134,7 @@ function Property() {
 
                         <label className='p9i'>Furnished </label>
 
-                        <select className='g9i' >
+                        <select className='g9i' onChange={(e)=>{setsd({...sd,furnished:e.target.value})}} >
                             <option selected>Select</option>
                             <option value="1">yes</option>
                             <option value="2">no</option>
@@ -122,7 +142,7 @@ function Property() {
                         </select>
                         <label className='p10i'>Car parking </label>
 
-                        <select className='g10i' >
+                        <select className='g10i'  onChange={(e)=>{setsd({...sd,carparking:e.target.value})}}>
                             <option selected>Select </option>
                             <option value="1">yes</option>
                             <option value="2">no</option>
@@ -130,7 +150,7 @@ function Property() {
                         </select>
                         <label className='p11i'>Lift </label>
 
-                        <select className='g11i' >
+                        <select className='g11i' onChange={(e)=>{setsd({...sd,lift:e.target.value})}} >
                             <option selected>Select Lift</option>
                             <option value="1">yes</option>
                             <option value="2">no</option>
@@ -139,10 +159,10 @@ function Property() {
 
 
                         <label className='p12i'>Electricity</label>
-                        <input className='g12i' placeholder='Example: 3 phase'></input>
+                        <input className='g12i' placeholder='Example: 3 phase'   onChange={(e)=>{setsd({...sd,electricity:e.target.value})}}></input>
                         <label className='p13i'>Facing </label>
 
-                        <select className='g13i' >
+                        <select className='g13i' onChange={(e)=>{setsd({...sd, facing:e.target.value})}} >
                             <option selected>Select Facing</option>
                             <option value="1">east</option>
                             <option value="2">north</option>
@@ -150,7 +170,7 @@ function Property() {
                         </select>
 
                   <Link to="/basicinfo"><button id='first1'>Previous</button></Link>      
-                  <Link to="/generalinfo"> <button id='second2'>save & continue</button></Link>  
+                  <Link to="/generalinfo" state={sd}> <button id='second2'>save & continue</button></Link>  
                     </div>
 
 
