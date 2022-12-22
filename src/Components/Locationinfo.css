@@ -721,24 +721,39 @@
   
    
 }
-.previous{
-    background-color: rgb(87, 183, 224);
-    border: none;
-    padding: 20px 45px;
-    color: white;
-    border-radius: 50px;
-    font-size: 15px;
+.previ{
+    height: 60px;
+    width: 187px;
+    left: 765px;
+    top: 908px;
+    border-radius: 500px;
+    position: absolute;
+    left: 47%;
+    right: 40.5%;
+    top: 110.07%;
+    bottom: 10.37%;
+    
+    background: #6AB4F8;
+    box-shadow: 0px 13px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 500px;    
 
     
 }
-.add{
-    background-color: rgb(62, 56, 224);
-    border: none;
-    padding: 20px 40px;
-    color: white;
-    border-radius: 50px;
-    font-size: 15px;
-    margin-left: 30px;
+.ad{
+    height: 60px;
+    width: 187px;
+    left: 972px;
+    top: 908px;
+    border-radius: 500px;
+    position: absolute;
+    left: 65%;
+    right: 27.56%;
+    top: 110.07%;
+    bottom: 10.37%;
+    
+    background: #4C57B6;
+    box-shadow: 0px 13px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 500px;    
    
 }
 
