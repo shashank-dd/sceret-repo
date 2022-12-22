@@ -7,6 +7,7 @@ import eye from './images/open-eye.png'
 import tag from './images/tag.png'
 import user from './images/avatar.png'
 import camera from './images/camera.png'
+import { Link } from 'react-router-dom';
 import "./g.css"
 function Genralinfo() {
     return (
@@ -58,16 +59,16 @@ function Genralinfo() {
                         <label className='p1k'>Name</label>
                         <select className='g1k'>
                             <option selected>Owner</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option value="1">broker</option>
+                            <option value="2">agent</option>
                         </select>
                         <label className='p2k'>Mobile</label>
                         <input className='g2k' placeholder='Enter mobile number'></input>
                         <label className='p3k'>Posted by</label>
                         <select className='g3k' >
                             <option value="0">Posted By</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option value="1">owner</option>
+                            <option value="2">agent</option>
 
                         </select>
 
@@ -75,24 +76,24 @@ function Genralinfo() {
                         <label className='p4k'>Sale Type</label>
                         <select className='g4k' placeholder='Please select'>
                             <option value="0">please select</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option value="1">Standard sale</option>
+                            <option value="2">Bank Owned sales</option>
 
                         </select>
 
-                        <label className='p5k'>Featured Packege</label>
+                        <label className='p5k'>Featured Package</label>
                         <select className='g5k'>
                             <option value="3">please select</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option value="1">yes</option>
+                            <option value="2">no</option>
 
                         </select>
                         <label className='p6k'>PPD package</label>
 
                         <select className='g6k' >
                             <option selected>Select property type</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option value="1">yes</option>
+                            <option value="2">no</option>
 
                         </select>
                         <div className='md'>
@@ -104,8 +105,8 @@ function Genralinfo() {
                        </div>
                        </div>
                        <div className='add'>Add Photo</div> 
-                       <button className='prev'><span id='previous'>Previous</span></button>
-                       <button className='save'><span id='cont'>Save & Continue</span></button>
+                       <Link to="/property">  <button className='prev'><span id='previous'>Previous</span></button></Link>    
+                       <Link to="/locationinfo"><button className='save'><span id='cont'>Save & Continue</span></button></Link>     
                     </div>   
                     </div> 
             </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import home from './images/home.png'
 import bell from './images/bell.png'
 import download from './images/download.png'
@@ -7,7 +7,12 @@ import eye from './images/open-eye.png'
 import tag from './images/tag.png'
 import user from './images/avatar.png'
 import "./gg/property.css"
+import { Link, useLocation } from 'react-router-dom';
+
 function Property() {
+    
+    const location=useLocation();
+    console.log(location.state,"lll")
     return (
 
         <div className='homepagei'>
@@ -58,77 +63,77 @@ function Property() {
 
 
                         <label className='p1i'>Length</label>
-                        <input className='g1i' placeholder='Example: 10000'></input>
+                        <input className='g1i' placeholder='Example: 1000'></input>
 
 
                         <label className='p2i'>Breadth</label>
 
-                        <input className='g2i' placeholder='Example: 10000'></input>
+                        <input className='g2i' placeholder='Example: 1000'></input>
 
                         <label className='p3i'>Total area</label>
-                        <input className='g3i' placeholder='Example: 10000'></input>
+                        <input className='g3i' placeholder='Example: 7500'></input>
                         <label className='p4i'> Area unit</label>
 
                         <select className='g4i' >
-                            <option selected>Select property type</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option selected> si unit</option>
+                            <option value="1">mili meter square</option>
+                            <option value="2">meter square</option>
 
-                        </select>
+                        </select> 
                         <label className='p5i'>No of bhk</label>
 
                         <select className='g5i' >
-                            <option selected>Select property type</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option selected> no of bhk</option>
+                            <option value="1">3</option>
+                            <option value="2">5</option>
 
                         </select>
                         <label className='p6i'>No of floor</label>
 
                         <select className='g6i' >
-                            <option selected>Select property type</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option selected> no of floor</option>
+                            <option value="1">2</option>
+                            <option value="2">3</option>
 
                         </select>
                         <label className='p7i'>Attached</label>
                         <select className='g7i' >
-                            <option selected>Select property type</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option selected>Select  type</option>
+                            <option value="1">yes</option>
+                            <option value="2">no</option>
 
                         </select>
                         <label className='p8i'>No of western toilet </label>
 
                         <select className='g8i' >
-                            <option selected>Select property type</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option selected>Select no</option>
+                            <option value="1">4</option>
+                            <option value="2">6</option>
 
                         </select>
 
                         <label className='p9i'>Furnished </label>
 
                         <select className='g9i' >
-                            <option selected>Select property type</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option selected>Select</option>
+                            <option value="1">yes</option>
+                            <option value="2">no</option>
 
                         </select>
                         <label className='p10i'>Car parking </label>
 
                         <select className='g10i' >
-                            <option selected>Select property type</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option selected>Select </option>
+                            <option value="1">yes</option>
+                            <option value="2">no</option>
 
                         </select>
                         <label className='p11i'>Lift </label>
 
                         <select className='g11i' >
                             <option selected>Select Lift</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option value="1">yes</option>
+                            <option value="2">no</option>
 
                         </select>
 
@@ -139,13 +144,13 @@ function Property() {
 
                         <select className='g13i' >
                             <option selected>Select Facing</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option value="1">east</option>
+                            <option value="2">north</option>
 
                         </select>
 
-                        <button id='first1'>cancel</button>
-                        <button id='second2'>continue</button>
+                  <Link to="/basicinfo"><button id='first1'>Previous</button></Link>      
+                  <Link to="/generalinfo"> <button id='second2'>save & continue</button></Link>  
                     </div>
 
 

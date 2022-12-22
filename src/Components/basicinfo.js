@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React  from 'react';
 import home from './images/home.png'
 import bell from './images/bell.png'
 import download from './images/download.png'
@@ -8,7 +8,13 @@ import eye from './images/open-eye.png'
 import tag from './images/tag.png'
 import user from './images/avatar.png'
 import "./basicinfo.css"
+import { Link } from 'react-router-dom';
+const form =0;
 function Basicinfo() {
+   
+
+
+ 
     return (
         <div className='homepage'>
             <div className='div1'>
@@ -61,17 +67,19 @@ function Basicinfo() {
 
                         <select className='g1'>
                             <option selected>Select property type</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option value="1">Land</option>
+                            <option value="2">Residential.</option>
+                            <option value="3">Commercial.</option>
+                            <option value="4">Industrial</option>
 
                         </select>
 
                         <label className='p2'>Negotable</label>
 
                         <select className='g2' >
-                            <option selected>Select property type</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option selected>Select Negotable</option>
+                            <option value="1">yes</option>
+                            <option value="2">no</option>
 
                         </select>
 
@@ -80,25 +88,25 @@ function Basicinfo() {
                         <label className='p4'> Ownership</label>
 
                         <select className='g4' >
-                            <option selected>Select property type</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option selected>Select ownership</option>
+                            <option value="1">individual  ownership</option>
+                            <option value="2">joined  couples</option>
 
                         </select>
                         <label className='p5'>Property age</label>
 
                         <select className='g5' >
-                            <option selected>Select property type</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option selected>Select property age</option>
+                            <option value="1">5</option>
+                            <option value="2">10</option>
 
                         </select>
                         <label className='p6'>Propert approved</label>
 
                         <select className='g6' >
-                            <option selected>Select property type</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option selected>Select property approved</option>
+                            <option value="1">yes</option>
+                            <option value="2">no</option>
 
                         </select>
                         <label className='p7'>Property description</label>
@@ -106,14 +114,14 @@ function Basicinfo() {
                         <label className='p8'>Bank loan </label>
 
                         <select className='g8' >
-                            <option selected>Select property type</option>
-                            <option value="1">One</option>
-                            <option value="2">g</option>
+                            <option selected>bank loan </option>
+                            <option value="1">Loan against residential or commercial property</option>
+                            <option value="2">against property for self-employed</option>
 
                         </select>
 
-                        <button id='opgg'>cancel</button>
-                        <button id='ophgg'>continue</button>
+                    <Link to="/homepage"><button id='opgg'>cancel</button></Link>    
+                  <Link to="/property" state={{id:890}}> <button id='ophgg'  >save & continue</button> </Link> 
 
 
 
