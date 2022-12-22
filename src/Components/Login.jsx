@@ -12,14 +12,21 @@ let Login = () =>{
        // console.log(details)
 
     }
-    let submitHandler = (e) =>{
-        e.preventDefault();
+    async function submitHandler (e){
+       
         console.log(details)
+      const logindata =  await fetch("http://localhost:8080/login/login", { method: 'post', body: details }).then((res) => res.json()).then((data) => { console.log(data);
+      if(data.status === "ok"){
+        alert('login successfull')
+        window.localStorage.setItem("token",data.token)
+        window.location.href="/homepage"
+      }
+     }).catch((e) => console.log(e))
     }
     return(
         <div className="Login-containerz">
-           <pre>{JSON.stringify(details)}</pre>
-                <form action="" onSubmit={submitHandler}>
+           
+               
                 <div className="Loginz">
                 <div>
                    <h1 className="orangez">Logo</h1>
@@ -33,12 +40,12 @@ let Login = () =>{
                     <input type="text" placeholder="Password" name='password' onChange={Changehandler} />
                 </div>
                 
-               <button className="buttonz" >SignIn</button>
+               <button className="buttonz" onSubmit={submitHandler}>SignIn</button>
                 <div >
                   <Link   to="/register">  <p>signUp</p></Link>
                 </div>
                 </div>
-                </form>
+              
                 
                 <div className="child-div">
                     Dont have account?  <Link to="/register">  <p>Signup </p></Link>

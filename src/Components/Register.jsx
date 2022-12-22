@@ -1,7 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Link, UNSAFE_enhanceManualRouteObjects } from "react-router-dom";
+import axios from "axios";
+import { Link} from "react-router-dom";
 import './Register.css'
 let Register = () =>{
     let [user,setusers] = useState({email:"",password:"",confirmpassword:""})
@@ -13,11 +14,18 @@ let Register = () =>{
         });
 
     }
-    let submithandler =  async (e) =>{
-        e.preventDefault()
+    async function submithandler  (e){
+       
         setformerrors(validate(user))
         console.log(user)
-        await fetch("http://localhost:5000/user", { method: 'post', body: user }).then((res) => res.json()).then((data) => { console.log(data); }).catch((e) => console.log(e))
+        const config ={
+            headers: {
+                'content-type': 'text/json'
+            }
+          }
+       const   data=await  axios.post("http://localhost:8080/register/register", user, config)
+            console.log(data)
+        //await fetch("http://localhost:8080/register/register", { method: 'post', body: user }).then((res) => res.json()).then((data) => { console.log(data); }).catch((e) => console.log(e))
     }
     
     let validate = (values) =>{
@@ -41,9 +49,9 @@ let Register = () =>{
     }
    return(
         <div className="card-containers">
-            <pre>{JSON.stringify(user)}</pre>
            
-                <form onSubmit={submithandler}>
+           
+               
                 <div className="registers">
                 <div>
                    <h1 className="logos">Logo</h1>
@@ -59,9 +67,9 @@ let Register = () =>{
                 <div>
                     <input type="password" placeholder="ConformPassword" name="confirmpassword" onChange={Changehandler} />
                 </div>
-              <button className="buttons" >Signup</button>   
+              <Link to='/'><button className="buttons" onSubmit={submithandler} >Signup</button></Link>
                 </div>
-                </form>
+                
                 <div className="child-div">
                     <Link   to="/"><p>signIn</p></Link>
                 </div>
