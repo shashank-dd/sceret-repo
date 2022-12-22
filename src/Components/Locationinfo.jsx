@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import home from './images/home.png'
 import bell from './images/bell.png'
 import download from './images/download.png'
@@ -6,11 +6,43 @@ import upload from './images/upload.png'
 import eye from './images/open-eye.png'
 import tag from './images/tag.png'
 import user from './images/avatar.png'
-import { Link } from 'react-router-dom';
+import axios from "axios";
+import { Link, useLocation } from 'react-router-dom';
 import "./Locationinfo.css"
 function Basicinfo() {
-
+    const[io,setio]=useState({
+      
+        email:         "",
+        city :            "",
+        area:         "",
+        pincode:        null,
+        address:          "",
+        landmark:             "",
+        latitude:              null,
+        longitude:                null,
+      })
+  
+  
     
+  
+   
+   
+  
+   
+  const location=useLocation()
+  useEffect(()=>{
+    setio({...location.state,...io})
+  },[])
+  
+ async function hh(){
+    const config ={
+        headers: {
+          "content-type": "multipart/form-data"
+        }
+      }
+   const   data=await  axios.post("http://localhost:8080/data/post", io, config)
+        console.log(data)
+}
     return (
         <div className='o'>
              <div className='homepagej'>
@@ -62,12 +94,12 @@ function Basicinfo() {
 
                         <label className='p1j'>Email</label>
 
-                        <input type='email'  className='g1j' placeholder='Email'></input>
+                        <input type='email'  className='g1j' placeholder='Email'   onChange={(e)=>{setio({...io,   email:e.target.value})}}></input>
                             
 
                         <label className='p2j'>City</label>
 
-                        <select className='g2j' >
+                        <select className='g2j'   onChange={(e)=>{setio({...io, city:e.target.value})}} >
                             <option selected>delhi</option>
                             <option value="1">banglore</option>
                             <option value="2">mumbai</option>
@@ -75,18 +107,18 @@ function Basicinfo() {
                         </select>
                         <label className='p4j'> Area</label>
 
-                            <select className='g4j' >
+                            <select className='g4j' onChange={(e)=>{setio({...io,area:e.target.value})}} >
                                 <option selected>Select Area</option>
                                 <option value="1">urban</option>
                                 <option value="2">rural</option>
 
                             </select>
                         <label className='p5j'>Address</label>
-                        <input className='g5j' placeholder='Example: adrress'></input>
+                        <input className='g5j' placeholder='Example: adrress'   onChange={(e)=>{setio({...io, address:e.target.value})}}></input>
                        
                         <label className='p3j'>Pincode</label>
 
-                        <select className='g3j' >
+                        <select className='g3j'  onChange={(e)=>{setio({...io,pincode:e.target.value})}} >
                             <option selected>Select Pincode</option>
                             <option value="1">571231</option>
                             <option value="2">577221</option>
@@ -94,12 +126,12 @@ function Basicinfo() {
                         </select>
                         <label className='p6j'>Landmark</label>
 
-                        <input type="text" className='g6j'  placeholder='Landmark'/>
+                        <input type="text" className='g6j'  placeholder='Landmark'  onChange={(e)=>{setio({...io,  landmark:e.target.value})}}/>
                         <label className='p7j'>Latitude</label>
-                        <input type="Number" className='g7j' placeholder='Latitude' ></input>
+                        <input type="Number" className='g7j' placeholder='Latitude'   onChange={(e)=>{setio({...io,latitude:e.target.value})}}></input>
                         <label className='p8j'>Longitude </label>
 
-                        <input type="text" className='g8j' placeholder='Longitude' />
+                        <input type="text" className='g8j' placeholder='Longitude'    onChange={(e)=>{setio({...io,longitude:e.target.value})}}/>
                        
 
 
@@ -114,7 +146,7 @@ function Basicinfo() {
             
            
            <Link to="/generalinfo"> <button className='previ'>Previous</button></Link>      
-           <Link to="/homepage">   <button className='ad'>Add Property</button></Link>    
+             <button className='ad' onClick={ hh}>Add Property</button>  
            
         </div>
         </div>
