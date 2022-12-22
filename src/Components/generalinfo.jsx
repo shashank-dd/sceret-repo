@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import home from './images/home.png'
 import bell from './images/bell.png'
 import download from './images/download.png'
@@ -7,9 +7,31 @@ import eye from './images/open-eye.png'
 import tag from './images/tag.png'
 import user from './images/avatar.png'
 import camera from './images/camera.png'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import "./g.css"
 function Genralinfo() {
+    const [op,setop]=useState({
+       
+        namei:       "",
+        mobile:         null,
+        postedby:       "",
+        saletype:         "",
+        featuredpackage:           "",
+        ppdpackage:       "",
+        image:    null
+      
+      })
+      
+     
+     
+      
+     
+      
+    const location=useLocation();
+    console.log(location)
+    useEffect(()=>{
+     setop({...location.state,...op})
+    },[])
     return (
              <div className='homepagek'>
             <div className='div1k'>
@@ -57,15 +79,15 @@ function Genralinfo() {
                 <div className='kkk'>
                     <div className='tablek'>
                         <label className='p1k'>Name</label>
-                        <select className='g1k'>
+                        <select className='g1k' onChange={(e)=>{setop({...op, namei:e.target.value})}}>
                             <option selected>Owner</option>
                             <option value="1">broker</option>
                             <option value="2">agent</option>
                         </select>
                         <label className='p2k'>Mobile</label>
-                        <input className='g2k' placeholder='Enter mobile number'></input>
+                        <input className='g2k' placeholder='Enter mobile number'  onChange={(e)=>{setop({...op,mobile:e.target.value})}}></input>
                         <label className='p3k'>Posted by</label>
-                        <select className='g3k' >
+                        <select className='g3k'  onChange={(e)=>{setop({...op,postedby:e.target.value})}}>
                             <option value="0">Posted By</option>
                             <option value="1">owner</option>
                             <option value="2">agent</option>
@@ -74,7 +96,7 @@ function Genralinfo() {
 
             
                         <label className='p4k'>Sale Type</label>
-                        <select className='g4k' placeholder='Please select'>
+                        <select className='g4k' placeholder='Please select' onChange={(e)=>{setop({...op,saletype:e.target.value})}}>
                             <option value="0">please select</option>
                             <option value="1">Standard sale</option>
                             <option value="2">Bank Owned sales</option>
@@ -82,7 +104,7 @@ function Genralinfo() {
                         </select>
 
                         <label className='p5k'>Featured Package</label>
-                        <select className='g5k'>
+                        <select className='g5k'   onChange={(e)=>{setop({...op,featuredpackage:e.target.value})}}>
                             <option value="3">please select</option>
                             <option value="1">yes</option>
                             <option value="2">no</option>
@@ -90,7 +112,7 @@ function Genralinfo() {
                         </select>
                         <label className='p6k'>PPD package</label>
 
-                        <select className='g6k' >
+                        <select className='g6k'  onChange={(e)=>{setop({...op,  ppdpackage:e.target.value})}} >
                             <option selected>Select property type</option>
                             <option value="1">yes</option>
                             <option value="2">no</option>
@@ -101,12 +123,12 @@ function Genralinfo() {
                         <label htmlFor='file'>
                         <img src={camera} alt='cam'/>
                         </label>
-                       <input id="file" type="file" />
+                       <input id="file" type="file"  onChange={(e)=>{setop({...op,  image:e.target.files[0]})}}/>
                        </div>
                        </div>
                        <div className='add'>Add Photo</div> 
                        <Link to="/property">  <button className='prev'><span id='previous'>Previous</span></button></Link>    
-                       <Link to="/locationinfo"><button className='save'><span id='cont'>Save & Continue</span></button></Link>     
+                       <Link to="/locationinfo" state={op}><button className='save'><span id='cont'>Save & Continue</span></button></Link>     
                     </div>   
                     </div> 
             </div>

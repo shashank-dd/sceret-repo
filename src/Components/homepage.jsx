@@ -10,6 +10,7 @@ import Table from './table';
 import Header from './header';
 import Search from './search';
 function HomePage(){
+    
     return(
         <div className='homepage'>
             <div className='div1'>
