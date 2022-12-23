@@ -33,7 +33,7 @@ function Basicinfo() {
                 "content-type": "multipart/form-data"
             }
         }
-        const data = await axios.post("https://realbackendg18.onrender.com/data/post", io, config)
+        const data = await axios.post("https://backendreal.onrender.com/data/post", io, config)
         console.log(data)
         if (data.data.ok === "ok") {
             window.location.href = "/homepage"
