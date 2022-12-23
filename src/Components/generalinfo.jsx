@@ -10,32 +10,24 @@ import camera from './images/camera.png'
 import { Link, useLocation } from 'react-router-dom';
 import "./g.css"
 function Genralinfo() {
-    const [gn,setgn]=useState("")
-    const [op,setop]=useState({
-       
-        namei:       "",
-        mobile:         null,
-        postedby:       "",
-        saletype:         "",
-        featuredpackage:           "",
-        ppdpackage:       "",
-        image:    null
-      
-      })
-      
-     
-     
-      
-     
-      
-    const location=useLocation();
+    const [gn, setgn] = useState("")
+    const [op, setop] = useState({
+        namei: "",
+        mobile: null,
+        postedby: "",
+        saletype: "",
+        featuredpackage: "",
+        ppdpackage: "",
+        image: null
+    })
+    const location = useLocation();
     console.log(location)
-    useEffect(()=>{
-     setop({...op,...location.state})
-     setgn(location.state.name)
-    },[])
+    useEffect(() => {
+        setop({ ...op, ...location.state })
+        setgn(location.state.name)
+    }, [])
     return (
-             <div className='homepagek'>
+        <div className='homepagek'>
             <div className='div1k'>
                 <div className='logok'>Logo</div>
                 <div className='left-navbark'>
@@ -81,61 +73,53 @@ function Genralinfo() {
                 <div className='kkk'>
                     <div className='tablek'>
                         <label className='p1k'>Name</label>
-                        <select className='g1k' onChange={(e)=>{setop({...op, namei:e.target.value})}}>
+                        <select className='g1k' onChange={(e) => { setop({ ...op, namei: e.target.value }) }}>
                             <option selected>Owner</option>
                             <option >broker</option>
                             <option>agent</option>
                         </select>
                         <label className='p2k'>Mobile</label>
-                        <input className='g2k' placeholder='Enter mobile number'  onChange={(e)=>{setop({...op,mobile:e.target.value})}}></input>
+                        <input className='g2k' placeholder='Enter mobile number' onChange={(e) => { setop({ ...op, mobile: e.target.value }) }}></input>
                         <label className='p3k'>Posted by</label>
-                        <select className='g3k'  onChange={(e)=>{setop({...op,postedby:e.target.value})}}>
+                        <select className='g3k' onChange={(e) => { setop({ ...op, postedby: e.target.value }) }}>
                             <option >Posted By</option>
                             <option >owner</option>
                             <option >agent</option>
-
                         </select>
-
-            
                         <label className='p4k'>Sale Type</label>
-                        <select className='g4k' placeholder='Please select' onChange={(e)=>{setop({...op,saletype:e.target.value})}}>
+                        <select className='g4k' placeholder='Please select' onChange={(e) => { setop({ ...op, saletype: e.target.value }) }}>
                             <option >please select</option>
                             <option >Standard sale</option>
                             <option >Bank Owned sales</option>
-
                         </select>
-
                         <label className='p5k'>Featured Package</label>
-                        <select className='g5k'   onChange={(e)=>{setop({...op,featuredpackage:e.target.value})}}>
+                        <select className='g5k' onChange={(e) => { setop({ ...op, featuredpackage: e.target.value }) }}>
                             <option >please select</option>
                             <option >yes</option>
                             <option >no</option>
-
                         </select>
                         <label className='p6k'>PPD package</label>
-
-                        <select className='g6k'  onChange={(e)=>{setop({...op,  ppdpackage:e.target.value})}} >
+                        <select className='g6k' onChange={(e) => { setop({ ...op, ppdpackage: e.target.value }) }} >
                             <option selected>Select property type</option>
                             <option >yes</option>
                             <option >no</option>
-
                         </select>
                         <div className='md'>
-                       <div className="image">
-                        <label htmlFor='file'>
-                        <img src={camera} alt='cam'/>
-                        </label>
-                       <input id="file" type="file"  onChange={(e)=>{setop({...op,  image:e.target.files[0]})}}/>
-                       </div>
-                       </div>
-                       <div className='add'>Add Photo</div> 
-                       <Link to="/property" state={op}>  <button className='prev'><span id='previous'>Previous</span></button></Link>    
-                       <Link to="/locationinfo" state={op}><button className='save'><span id='cont'>Save & Continue</span></button></Link>     
-                    </div>   
-                    </div> 
+                            <div className="image">
+                                <label htmlFor='file'>
+                                    <img src={camera} alt='cam' />
+                                </label>
+                                <input id="file" type="file" onChange={(e) => { setop({ ...op, image: e.target.files[0] }) }} />
+                            </div>
+                        </div>
+                        <div className='add'>Add Photo</div>
+                        <Link to="/property" state={op}>  <button className='prev'><span id='previous'>Previous</span></button></Link>
+                        <Link to="/locationinfo" state={op}><button className='save'><span id='cont'>Save & Continue</span></button></Link>
+                    </div>
+                </div>
             </div>
         </div>
-       
+
     )
 }
 export default Genralinfo;
