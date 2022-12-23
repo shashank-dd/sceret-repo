@@ -31,7 +31,7 @@ function Genralinfo() {
     const location=useLocation();
     console.log(location)
     useEffect(()=>{
-     setop({...location.state,...op})
+     setop({...op,...location.state})
      setgn(location.state.name)
     },[])
     return (
@@ -83,41 +83,41 @@ function Genralinfo() {
                         <label className='p1k'>Name</label>
                         <select className='g1k' onChange={(e)=>{setop({...op, namei:e.target.value})}}>
                             <option selected>Owner</option>
-                            <option value="1">broker</option>
-                            <option value="2">agent</option>
+                            <option >broker</option>
+                            <option>agent</option>
                         </select>
                         <label className='p2k'>Mobile</label>
                         <input className='g2k' placeholder='Enter mobile number'  onChange={(e)=>{setop({...op,mobile:e.target.value})}}></input>
                         <label className='p3k'>Posted by</label>
                         <select className='g3k'  onChange={(e)=>{setop({...op,postedby:e.target.value})}}>
-                            <option value="0">Posted By</option>
-                            <option value="1">owner</option>
-                            <option value="2">agent</option>
+                            <option >Posted By</option>
+                            <option >owner</option>
+                            <option >agent</option>
 
                         </select>
 
             
                         <label className='p4k'>Sale Type</label>
                         <select className='g4k' placeholder='Please select' onChange={(e)=>{setop({...op,saletype:e.target.value})}}>
-                            <option value="0">please select</option>
-                            <option value="1">Standard sale</option>
-                            <option value="2">Bank Owned sales</option>
+                            <option >please select</option>
+                            <option >Standard sale</option>
+                            <option >Bank Owned sales</option>
 
                         </select>
 
                         <label className='p5k'>Featured Package</label>
                         <select className='g5k'   onChange={(e)=>{setop({...op,featuredpackage:e.target.value})}}>
-                            <option value="3">please select</option>
-                            <option value="1">yes</option>
-                            <option value="2">no</option>
+                            <option >please select</option>
+                            <option >yes</option>
+                            <option >no</option>
 
                         </select>
                         <label className='p6k'>PPD package</label>
 
                         <select className='g6k'  onChange={(e)=>{setop({...op,  ppdpackage:e.target.value})}} >
                             <option selected>Select property type</option>
-                            <option value="1">yes</option>
-                            <option value="2">no</option>
+                            <option >yes</option>
+                            <option >no</option>
 
                         </select>
                         <div className='md'>
@@ -129,7 +129,7 @@ function Genralinfo() {
                        </div>
                        </div>
                        <div className='add'>Add Photo</div> 
-                       <Link to="/property">  <button className='prev'><span id='previous'>Previous</span></button></Link>    
+                       <Link to="/property" state={op}>  <button className='prev'><span id='previous'>Previous</span></button></Link>    
                        <Link to="/locationinfo" state={op}><button className='save'><span id='cont'>Save & Continue</span></button></Link>     
                     </div>   
                     </div> 

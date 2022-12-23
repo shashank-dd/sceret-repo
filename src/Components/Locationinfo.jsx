@@ -106,16 +106,16 @@ function Basicinfo() {
 
                         <select className='g2j'   onChange={(e)=>{setio({...io, city:e.target.value})}} >
                             <option selected>delhi</option>
-                            <option value="1">banglore</option>
-                            <option value="2">mumbai</option>
+                            <option >banglore</option>
+                            <option >mumbai</option>
 
                         </select>
                         <label className='p4j'> Area</label>
 
                             <select className='g4j' onChange={(e)=>{setio({...io,area:e.target.value})}} >
                                 <option selected>Select Area</option>
-                                <option value="1">urban</option>
-                                <option value="2">rural</option>
+                                <option >urban</option>
+                                <option >rural</option>
 
                             </select>
                         <label className='p5j'>Address</label>
@@ -125,8 +125,8 @@ function Basicinfo() {
 
                         <select className='g3j'  onChange={(e)=>{setio({...io,pincode:e.target.value})}} >
                             <option selected>Select Pincode</option>
-                            <option value="1">571231</option>
-                            <option value="2">577221</option>
+                            <option >571231</option>
+                            <option >577221</option>
 
                         </select>
                         <label className='p6j'>Landmark</label>
@@ -150,7 +150,7 @@ function Basicinfo() {
             </div>
             
            
-           <Link to="/generalinfo"> <button className='previ'>Previous</button></Link>      
+           <Link to="/generalinfo" state={io}> <button className='previ'>Previous</button></Link>      
              <button className='ad' onClick={ hh}>Add Property</button>  
            
         </div>

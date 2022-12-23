@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import home from './images/home.png'
 import bell from './images/bell.png'
 import download from './images/download.png'
@@ -19,16 +20,19 @@ import axios from "axios";
 function HomePage() {
     const [dta,setdta]=useState([])
     const[name,setname]=useState("")
+    const [isLoggedin, setIsLoggedin] = useState(false)
+    let navigate = useNavigate()
 useEffect(()=>{
     axios.post("http://localhost:8080/data/data",{token:window.localStorage.getItem("token")}).then(response =>{
     
         console.log(response.data.dat)
         setdta(response.data.dat)
-        setname(response.data.dat[0].name)
+        setname(response.data.user)
 
  }).catch(error =>{console.log(error)})
    
 },[])
+
 const onchangehandler =(e)=>{
     if(e.target.value === ""){
         window.location.reload(true)
@@ -40,6 +44,22 @@ const onchangehandler =(e)=>{
    setdta(search)
   }
  
+
+let logoutHandler = () =>{
+        if(window.localStorage.getItem){
+            
+            setIsLoggedin(true)
+        }
+        else{
+            window.localStorage.removeItem('token')
+            setIsLoggedin(false)
+            navigate("/")
+        }
+    
+    
+    }
+
+
     return (
         <div className='homepage'>
             <div className='div1'>
@@ -60,7 +80,11 @@ const onchangehandler =(e)=>{
                         <img src={user} alt="7" />
                         <select>
                             <option selected>{name}</option>
+
                             <option>Logout</option>
+
+                            <option ><button onClick={logoutHandler}>LogOut</button></option>
+
                         </select>
                     </div>
                 </div>
