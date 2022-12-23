@@ -10,7 +10,7 @@ import "./gg/property.css"
 import { Link, useLocation } from 'react-router-dom';
 
 function Property() {
-    const[y,sety]=useState("")
+   
     const [sd,setsd]=useState({
     
         length:          null,
@@ -30,8 +30,8 @@ function Property() {
       })
       const location=useLocation();
       useEffect(()=>{
-       setsd({...location.state,...sd})
-       sety(location.state.name)
+       setsd({...sd,...location.state})
+      
       },[])
      
     console.log(location.state,"lll")
@@ -55,7 +55,7 @@ function Property() {
                     <div className='useri'>
                         <img src={user} alt="7" />
                         <select>
-                            <option selected>{y}</option>
+                            <option selected>{sd.name}</option>
                             <option>Log out</option>
                         </select>
                     </div>
@@ -171,7 +171,7 @@ function Property() {
 
                         </select>
 
-                  <Link to="/basicinfo"><button id='first1'>Previous</button></Link>      
+                  <Link to="/basicinfo" state={sd}><button id='first1'>Previous</button></Link>      
                   <Link to="/generalinfo" state={sd}> <button id='second2'>save & continue</button></Link>  
                     </div>
 

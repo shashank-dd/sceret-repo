@@ -31,7 +31,7 @@ function Genralinfo() {
     const location=useLocation();
     console.log(location)
     useEffect(()=>{
-     setop({...location.state,...op})
+     setop({...op,...location.state})
      setgn(location.state.name)
     },[])
     return (
@@ -129,7 +129,7 @@ function Genralinfo() {
                        </div>
                        </div>
                        <div className='add'>Add Photo</div> 
-                       <Link to="/property">  <button className='prev'><span id='previous'>Previous</span></button></Link>    
+                       <Link to="/property" state={op}>  <button className='prev'><span id='previous'>Previous</span></button></Link>    
                        <Link to="/locationinfo" state={op}><button className='save'><span id='cont'>Save & Continue</span></button></Link>     
                     </div>   
                     </div> 

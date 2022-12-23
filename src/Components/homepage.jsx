@@ -24,7 +24,7 @@ useEffect(()=>{
     
         console.log(response.data.dat)
         setdta(response.data.dat)
-        setname(response.data.dat[0].name)
+        setname(response.data.user)
 
  }).catch(error =>{console.log(error)})
    

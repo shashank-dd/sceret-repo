@@ -12,7 +12,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 function Basicinfo() {
    const location =useLocation()
-   const[n,setn]=useState("")
+  
     const [form,setform]=useState({
         name :    location.state.name   ,
         propertytype :           "",
@@ -25,9 +25,7 @@ function Basicinfo() {
         bankloan:          "",
         
       })
-useEffect(()=>{
-  setn(location.state.name )
-},[])
+
     
       
      
@@ -56,7 +54,7 @@ useEffect(()=>{
                     <div className='user'>
                         <img src={user} alt="7" />
                         <select>
-                            <option selected>{n}</option>
+                            <option selected>{form.name}</option>
                             <option>Log out</option>
                         </select>
                     </div>

@@ -150,7 +150,7 @@ function Basicinfo() {
             </div>
             
            
-           <Link to="/generalinfo"> <button className='previ'>Previous</button></Link>      
+           <Link to="/generalinfo" state={io}> <button className='previ'>Previous</button></Link>      
              <button className='ad' onClick={ hh}>Add Property</button>  
            
         </div>
