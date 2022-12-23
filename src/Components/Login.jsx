@@ -1,59 +1,93 @@
-import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import './Login.css'
-let Login = () =>{
-    let [details,setdetails] = useState({email:"",password:""})
-    let Changehandler = (e)=>{
-        setdetails({
-            ...details,
-            [e.target.name]:e.target.value
+const express=require("express")
+const Login =require("../models/login.js")
+const bcrypt = require('bcrypt');
+route=express.Router();
+route.use(express.json())
+const cors = require("cors")
+route.use(cors({
+    origin: "*",
+}))
+
+// const secret="ghg"
+
+
+const mongoose = require('mongoose');
+var jwt = require('jsonwebtoken');
+
+/* route.post('/login',async (req,res)=>{
+    try{
+       console.log(req.body)
+        
+    let user = await login.findOne({email:req.body.email})
+    console.log(user,1)
+    if(!user){
+       return  res.status(409).json({
+            status:'failure',
+            message:'user dont exist plss singup'
         })
-       // console.log(details)
-
     }
-    async function submitHandler (e){
-       e.preventDefault()
-        console.log(details)
-      const logindata= await axios.post("http://localhost:5000/login/login",details)
-      if(data.status === "ok"){
-        alert('login successfull')
-        window.localStorage.setItem("token",data.token)
-        window.location.href="/homepage"
-      }
-     
-     
-    return(
-        <div className="Login-containerz">
-           
-               <form action="" onSubmit={submitHandler} >
-                <div className="Loginz">
-                <div>
-                   <h1 className="orangez">Logo</h1>
+    console.log("ppppp")
 
-                </div>
-                <div className="createz">Enter your credentials to your account</div>
-                <div>
-                    <input type="text" placeholder="MaildID" name="email" onChange={Changehandler} />
-                </div>
-                <div>
-                    <input type="text" placeholder="Password" name='password' onChange={Changehandler} />
-                </div>
-                
-               <button className="buttonz" type="submit">SignIn</button>
-                <div >
-                  <Link   to="/register">  <p>signUp</p></Link>
-                </div>
-                </div>
-              
-                </form>
-                <div className="child-div">
-                    Dont have account?  <Link to="/register">  <p>Signup </p></Link>
-                </div>
-              
-          
-        </div>
-    )
+    const token = jwt.sign({
+        exp: Math.floor(Date.now() / 1000) + (60 * 60),
+        data: user.email
+      }, secret);
 
-}
-export default Login
+
+     res.json({
+        status: "Success",
+        message: "Login Succesful",
+        token:token
+    })
+    
+   
+ } catch(e){
+     res.status(401).json({
+        status: "Failed",
+        message: e.message
+    })
+    }
+
+ }) */
+ route.get("/",(req,res)=>{
+    res.send("ok")
+ })
+ route.post("/login", async (req, res) => {
+    console.log(req.body)
+    const { email, password } = req.body;
+    const userData = await Login.findOne({email:email});
+    
+    console.log(userData)
+    if (userData) {
+        // is await requred for bcrypt???
+        let result = await bcrypt.compare(password, userData.password);
+        if (result) {
+            const token = jwt.sign({
+                exp: Math.floor(Date.now() / 1000) + 60 * 60,
+                data: userData.email,
+            },
+                process.env.SECRET
+            );
+            res.status(200).json({
+                Status: "ok",
+                token: token,
+            });
+        } else {
+            res.status(400).json({
+                status: "failed",
+                message: "Wrong Password",
+            });
+        }
+    }
+    else {
+        res.status(400).json({
+            status: "failed",
+            message: "No user Found",
+        });
+    }
+});
+
+
+
+
+module.exports = route;
