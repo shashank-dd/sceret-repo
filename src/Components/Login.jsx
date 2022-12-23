@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './Login.css'
+
 let Login = () =>{
+    const navigate=useNavigate()
     let [details,setdetails] = useState({email:"",password:""})
     let Changehandler = (e)=>{
         setdetails({
@@ -19,7 +21,8 @@ let Login = () =>{
         if(response.data.Status === "ok"){
             alert('login successfull')
             window.localStorage.setItem("token",response.data.token)
-            window.location.href="/homepage"
+            navigate("/homepage")
+            // window.location.href="/homepage"
           }
     }).catch(error =>{console.log(error)})
    }

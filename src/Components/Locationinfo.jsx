@@ -7,9 +7,11 @@ import eye from './images/open-eye.png'
 import tag from './images/tag.png'
 import user from './images/avatar.png'
 import axios from "axios";
-import { Link, useLocation } from 'react-router-dom';
+import { Link,  useLocation, useNavigate } from 'react-router-dom';
 import "./Locationinfo.css"
+
 function Basicinfo() {
+    const navigate=useNavigate()
     const [ln, setln] = useState("")
     const [io, setio] = useState({
 
@@ -36,7 +38,8 @@ function Basicinfo() {
         const data = await axios.post("https://backendreal.onrender.com/data/post", io, config)
         console.log(data)
         if (data.data.ok === "ok") {
-            window.location.href = "/homepage"
+            navigate("/homepage")
+        
         }
     }
     return (
