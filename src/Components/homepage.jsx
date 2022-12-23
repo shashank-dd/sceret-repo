@@ -12,10 +12,10 @@ import "./homepage.css"
 // import Table from './table';
 // import Header from './header';
 // import Search from './search';
+import { Link } from 'react-router-dom';
 import user from './images/avatar.png'
 import search from './images/search.png'
 import plus from './images/plus.png'
-import { Link } from "react-router-dom";
 import axios from "axios";
 function HomePage() {
     const [dta,setdta]=useState([])
@@ -32,6 +32,19 @@ useEffect(()=>{
  }).catch(error =>{console.log(error)})
    
 },[])
+
+const onchangehandler =(e)=>{
+    if(e.target.value === ""){
+        window.location.reload(true)
+        const temparr = dta
+        setdta(temparr)
+        return
+    }
+   const search =  dta.filter(item=>item.PPDID.toLocaleLowerCase().startsWith(e.target.value.toLocaleLowerCase()))
+   setdta(search)
+  }
+ 
+
 let logoutHandler = () =>{
         if(window.localStorage.getItem){
             
@@ -45,6 +58,7 @@ let logoutHandler = () =>{
     
     
     }
+
 
     return (
         <div className='homepage'>
@@ -66,16 +80,21 @@ let logoutHandler = () =>{
                         <img src={user} alt="7" />
                         <select>
                             <option selected>{name}</option>
+
+                            <option>Logout</option>
+
                             <option ><button onClick={logoutHandler}>LogOut</button></option>
+
                         </select>
                     </div>
                 </div>
                 <div className='line'></div>
                 <div className='div3'>
                     <div className='searchbar'>
-                        <input type="text" placeholder="search PPD ID" />
+                        <input type="text" placeholder="search PPD ID" id='srch' onChange={onchangehandler}/>
                         <div className='vline'></div>
-                        <img src={search} alt="8" />
+                        <label htmlFor='srch'><img src={search} alt="8" /></label>
+                        
                     </div>
                     <div className='property'>
                         <img src={plus} alt="" />
