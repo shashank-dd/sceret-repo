@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import './Login.css'
 let Login = () =>{
@@ -12,17 +13,26 @@ let Login = () =>{
        // console.log(details)
 
     }
-    async function submitHandler (e){
+     function submitHandler (){
        
         console.log(details)
-      const logindata =  await fetch("http://localhost:8080/login/login", { method: 'post', body: details }).then((res) => res.json()).then((data) => { console.log(data);
-      if(data.status === "ok"){
-        alert('login successfull')
-        window.localStorage.setItem("token",data.token)
-        window.location.href="/homepage"
-      }
-     }).catch((e) => console.log(e))
+    //   const logindata =  await fetch("http://localhost:8080/login/login", { method: 'post', body: details }).then((res) => res.json()).then((data) => { console.log(data);
+      axios.post("http://localhost:8080/login/login",details).then(response =>{
+        console.log(response)
+        console.log(response.data)
+        if(response.data.Status === "ok"){
+            alert('login successfull')
+            window.localStorage.setItem("token",response.data.token)
+            window.location.href="/homepage"
+          }
+    
+    
+    
+    }).catch(error =>{console.log(error)})
+   
+     
     }
+    
     return(
         <div className="Login-containerz">
            
@@ -40,7 +50,7 @@ let Login = () =>{
                     <input type="text" placeholder="Password" name='password' onChange={Changehandler} />
                 </div>
                 
-               <button className="buttonz" onSubmit={submitHandler}>SignIn</button>
+               <button className="buttonz" onClick={submitHandler}>SignIn</button>
                 <div >
                   <Link   to="/register">  <p>signUp</p></Link>
                 </div>

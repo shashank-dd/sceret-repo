@@ -10,6 +10,7 @@ import camera from './images/camera.png'
 import { Link, useLocation } from 'react-router-dom';
 import "./g.css"
 function Genralinfo() {
+    const [gn,setgn]=useState("")
     const [op,setop]=useState({
        
         namei:       "",
@@ -31,6 +32,7 @@ function Genralinfo() {
     console.log(location)
     useEffect(()=>{
      setop({...location.state,...op})
+     setgn(location.state.name)
     },[])
     return (
              <div className='homepagek'>
@@ -51,7 +53,7 @@ function Genralinfo() {
                     <div className='userk'>
                         <img src={user} alt="7" />
                         <select>
-                            <option selected>User Name</option>
+                            <option selected>{gn}</option>
                             <option>Log out</option>
                         </select>
                     </div>

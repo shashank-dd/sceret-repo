@@ -1,5 +1,5 @@
 
-import React, { useState }  from 'react';
+import React, { useEffect, useState }  from 'react';
 import home from './images/home.png'
 import bell from './images/bell.png'
 import download from './images/download.png'
@@ -12,6 +12,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 function Basicinfo() {
    const location =useLocation()
+   const[n,setn]=useState("")
     const [form,setform]=useState({
         name :    location.state.name   ,
         propertytype :           "",
@@ -24,7 +25,9 @@ function Basicinfo() {
         bankloan:          "",
         
       })
-
+useEffect(()=>{
+  setn(location.state.name )
+},[])
     
       
      
@@ -53,7 +56,7 @@ function Basicinfo() {
                     <div className='user'>
                         <img src={user} alt="7" />
                         <select>
-                            <option selected>User Name</option>
+                            <option selected>{n}</option>
                             <option>Log out</option>
                         </select>
                     </div>
