@@ -15,6 +15,7 @@ import search from './images/search.png'
 import plus from './images/plus.png'
 import axios from "axios";
 function HomePage() {
+    
     const [dta,setdta]=useState([])
     const[name,setname]=useState("")
     const [isLoggedin, setIsLoggedin] = useState(false)
@@ -28,7 +29,7 @@ useEffect(()=>{
    },[])
 const onchangehandler =(e)=>{
     if(e.target.value === ""){
-        window.location.reload(true)
+        navigate("/homepage")
         const temparr = dta
         setdta(temparr)
         return
