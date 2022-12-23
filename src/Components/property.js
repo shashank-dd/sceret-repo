@@ -98,39 +98,39 @@ function Property() {
 
                         <select className='g4i' onChange={(e)=>{setsd({...sd, areaunit:e.target.value})}} >
                             <option selected> si unit</option>
-                            <option value="1">mili meter square</option>
-                            <option value="2">meter square</option>
+                            <option >mili meter square</option>
+                            <option >meter square</option>
 
                         </select> 
                         <label className='p5i'>No of bhk</label>
 
                         <select className='g5i' onChange={(e)=>{setsd({...sd,noofbhk:e.target.value})}}>
                             <option selected> no of bhk</option>
-                            <option value="1">3</option>
-                            <option value="2">5</option>
+                            <option >3</option>
+                            <option >5</option>
 
                         </select>
                         <label className='p6i'>No of floor</label>
 
                         <select className='g6i'  onChange={(e)=>{setsd({...sd, nooffloors:e.target.value})}} >
                             <option selected> no of floor</option>
-                            <option value="1">2</option>
-                            <option value="2">3</option>
+                            <option >2</option>
+                            <option >3</option>
 
                         </select>
                         <label className='p7i'>Attached</label>
                         <select className='g7i'  onChange={(e)=>{setsd({...sd, attached:e.target.value})}}>
                             <option selected>Select  type</option>
-                            <option value="1">yes</option>
-                            <option value="2">no</option>
+                            <option >yes</option>
+                            <option >no</option>
 
                         </select>
                         <label className='p8i'>No of western toilet </label>
 
                         <select className='g8i' onChange={(e)=>{setsd({...sd,westerntoilet:e.target.value})}} >
                             <option selected>Select no</option>
-                            <option value="1">4</option>
-                            <option value="2">6</option>
+                            <option >4</option>
+                            <option >6</option>
 
                         </select>
 
@@ -138,24 +138,24 @@ function Property() {
 
                         <select className='g9i' onChange={(e)=>{setsd({...sd,furnished:e.target.value})}} >
                             <option selected>Select</option>
-                            <option value="1">yes</option>
-                            <option value="2">no</option>
+                            <option >yes</option>
+                            <option >no</option>
 
                         </select>
                         <label className='p10i'>Car parking </label>
 
                         <select className='g10i'  onChange={(e)=>{setsd({...sd,carparking:e.target.value})}}>
                             <option selected>Select </option>
-                            <option value="1">yes</option>
-                            <option value="2">no</option>
+                            <option >yes</option>
+                            <option >no</option>
 
                         </select>
                         <label className='p11i'>Lift </label>
 
                         <select className='g11i' onChange={(e)=>{setsd({...sd,lift:e.target.value})}} >
                             <option selected>Select Lift</option>
-                            <option value="1">yes</option>
-                            <option value="2">no</option>
+                            <option >yes</option>
+                            <option >no</option>
 
                         </select>
 
@@ -166,8 +166,8 @@ function Property() {
 
                         <select className='g13i' onChange={(e)=>{setsd({...sd, facing:e.target.value})}} >
                             <option selected>Select Facing</option>
-                            <option value="1">east</option>
-                            <option value="2">north</option>
+                            <option >east</option>
+                            <option >north</option>
 
                         </select>
 

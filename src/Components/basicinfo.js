@@ -85,12 +85,15 @@ function Basicinfo() {
 
                         <label className='p1'>Property type</label>
 
-                        <select className='g1' onChange={(e)=>{setform({...form,propertytype:e.target.value})}}>
+                        <select className='g1' onChange={(e)=>{
+                            
+                            console.log(e.target.value)
+                            setform({...form,propertytype:e.target.value})}}>
                             <option selected>Select property type</option>
-                            <option value="1">Land</option>
-                            <option value="2">Residential.</option>
-                            <option value="3">Commercial.</option>
-                            <option value="4">Industrial</option>
+                            <option >Land</option>
+                            <option >Residential.</option>
+                            <option >Commercial.</option>
+                            <option >Industrial</option>
 
                         </select>
 
@@ -98,8 +101,8 @@ function Basicinfo() {
 
                         <select className='g2' onChange={(e)=>{setform({...form,negotable:e.target.value})}} >
                             <option selected>Select Negotable</option>
-                            <option value="1">yes</option>
-                            <option value="2">no</option>
+                            <option >yes</option>
+                            <option >no</option>
 
                         </select>
 
@@ -109,24 +112,24 @@ function Basicinfo() {
 
                         <select className='g4' onChange={(e)=>{setform({...form,ownership:e.target.value})}} >
                             <option selected>Select ownership</option>
-                            <option value="1">individual  ownership</option>
-                            <option value="2">joined  couples</option>
+                            <option >individual  ownership</option>
+                            <option >joined  couples</option>
 
                         </select>
                         <label className='p5'>Property age</label>
 
                         <select className='g5' onChange={(e)=>{setform({...form,propertyage:e.target.value})}} >
                             <option selected>Select property age</option>
-                            <option value="1">5</option>
-                            <option value="2">10</option>
+                            <option >5</option>
+                            <option >10</option>
 
                         </select>
                         <label className='p6'>Propert approved</label>
 
                         <select className='g6' onChange={(e)=>{setform({...form,propertyapproved:e.target.value})}} >
                             <option selected>Select property approved</option>
-                            <option value="1">yes</option>
-                            <option value="2">no</option>
+                            <option >yes</option>
+                            <option >no</option>
 
                         </select>
                         <label className='p7'>Property description</label>
@@ -135,8 +138,8 @@ function Basicinfo() {
 
                         <select className='g8'  onChange={(e)=>{setform({...form,bankloan:e.target.value})}} >
                             <option selected>bank loan </option>
-                            <option value="1">Loan against residential or commercial property</option>
-                            <option value="2">against property for self-employed</option>
+                            <option >Loan against residential or commercial property</option>
+                            <option >against property for self-employed</option>
 
                         </select>
 
