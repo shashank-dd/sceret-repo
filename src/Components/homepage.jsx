@@ -9,9 +9,6 @@ import tag from './images/tag.png'
 import pencil from './images/pencil.png'
 import gallery from './images/images.png'
 import "./homepage.css"
-// import Table from './table';
-// import Header from './header';
-// import Search from './search';
 import { Link } from 'react-router-dom';
 import user from './images/avatar.png'
 import search from './images/search.png'
@@ -23,16 +20,12 @@ function HomePage() {
     const [isLoggedin, setIsLoggedin] = useState(false)
     let navigate = useNavigate()
 useEffect(()=>{
-    axios.post("http://localhost:8080/data/data",{token:window.localStorage.getItem("token")}).then(response =>{
-    
-        console.log(response.data.dat)
+    axios.post("https://realbackendg18.onrender.com/data/data",{token:window.localStorage.getItem("token")}).then(response =>{
+       console.log(response.data.dat)
         setdta(response.data.dat)
         setname(response.data.user)
-
- }).catch(error =>{console.log(error)})
-   
-},[])
-
+}).catch(error =>{console.log(error)})
+   },[])
 const onchangehandler =(e)=>{
     if(e.target.value === ""){
         window.location.reload(true)
@@ -43,11 +36,8 @@ const onchangehandler =(e)=>{
    const search =  dta.filter(item=>item.PPDID.toLocaleLowerCase().startsWith(e.target.value.toLocaleLowerCase()))
    setdta(search)
   }
- 
-
-let logoutHandler = () =>{
+ let logoutHandler = () =>{
         if(window.localStorage.getItem){
-            
             setIsLoggedin(true)
         }
         else{
@@ -55,12 +45,8 @@ let logoutHandler = () =>{
             setIsLoggedin(false)
             navigate("/")
         }
-    
-    
     }
-
-
-    return (
+return (
         <div className='homepage'>
             <div className='div1'>
                 <div className='logo'>Logo</div>
@@ -80,11 +66,8 @@ let logoutHandler = () =>{
                         <img src={user} alt="7" />
                         <select>
                             <option selected>{name}</option>
-
                             <option>Logout</option>
-
                             <option ><button onClick={logoutHandler}>LogOut</button></option>
-
                         </select>
                     </div>
                 </div>
@@ -94,15 +77,13 @@ let logoutHandler = () =>{
                         <input type="text" placeholder="search PPD ID" id='srch' onChange={onchangehandler}/>
                         <div className='vline'></div>
                         <label htmlFor='srch'><img src={search} alt="8" /></label>
-                        
-                    </div>
+                        </div>
                     <div className='property'>
                         <img src={plus} alt="" />
                         <Link to="/basicinfo" state={{ name: name }}><span>Add Property</span></Link>
                     </div>
                 </div>
-
-                <div>
+              <div>
                     <table>
                         <thead>
                             <th>
@@ -120,8 +101,7 @@ let logoutHandler = () =>{
                         <div className='mml'>
                             {dta&& dta.map((obj,index)=>{
                                 return  <div className='jml' key={index}>
-
-                                <div className='fk'>{obj.PPDID}</div>
+                                 <div className='fk'>{obj.PPDID}</div>
                                 <div className='fk'><img id='gal' src={gallery} alt="gal"/></div>
                                 <div className='fk'>{obj.propertytype}</div>
                                 <div className='fk'>{obj.mobile}</div>
@@ -133,16 +113,10 @@ let logoutHandler = () =>{
                                     <img src={eye} alt="e" id='e'/>
                                     <img src={pencil} alt="p" id="p"/>
                                 </div>
-
-                            </div>
+                           </div>
                             })}
-                           
-                           
-
-
                         </div>
-
-                    </table>
+                      </table>
                 </div>
             </div>
         </div>
