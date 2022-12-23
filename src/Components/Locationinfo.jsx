@@ -10,6 +10,7 @@ import axios from "axios";
 import { Link, useLocation } from 'react-router-dom';
 import "./Locationinfo.css"
 function Basicinfo() {
+    const[ln,setln]=useState("")
     const[io,setio]=useState({
       
         email:         "",
@@ -32,6 +33,7 @@ function Basicinfo() {
   const location=useLocation()
   useEffect(()=>{
     setio({...location.state,...io})
+    setln(location.state.name)
   },[])
   
  async function hh(){
@@ -42,6 +44,9 @@ function Basicinfo() {
       }
    const   data=await  axios.post("http://localhost:8080/data/post", io, config)
         console.log(data)
+        if(data.data.ok==="ok"){
+            window.location.href="/homepage"
+        }
 }
     return (
         <div className='o'>
@@ -63,7 +68,7 @@ function Basicinfo() {
                     <div className='userj'>
                         <img src={user} alt="7" />
                         <select>
-                            <option selected>User Name</option>
+                            <option selected>{ln}</option>
                             <option>Log out</option>
                         </select>
                     </div>
