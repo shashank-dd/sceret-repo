@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './Register.css'
+
 let Register = () => {
+    const navigate=useNavigate()
     let [user, setusers] = useState({ email: "", password: "", confirmpassword: "" })
     let [formerrors, setformerrors] = useState(0)
 function submithandler(e) {
@@ -13,7 +15,8 @@ function submithandler(e) {
          axios.post("https://backendreal.onrender.com/register/register",user).then(response =>{
                 console.log(response.data.status)
                 if(response.data.status==="ok"){
-                            window.location.href="/"
+                    navigate("/")
+                            // window.location.href="/"
                 }
         }).catch(error =>{console.log(error)})
         }
