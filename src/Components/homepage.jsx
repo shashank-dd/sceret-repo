@@ -20,7 +20,7 @@ function HomePage() {
     const [isLoggedin, setIsLoggedin] = useState(false)
     let navigate = useNavigate()
 useEffect(()=>{
-    axios.post("https://realbackendg18.onrender.com/data/data",{token:window.localStorage.getItem("token")}).then(response =>{
+    axios.post("https://backendreal.onrender.com/data/data",{token:window.localStorage.getItem("token")}).then(response =>{
        console.log(response.data.dat)
         setdta(response.data.dat)
         setname(response.data.user)

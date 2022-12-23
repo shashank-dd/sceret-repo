@@ -10,7 +10,7 @@ function submithandler(e) {
         console.log("1")
         setformerrors(validate(user))
      console.log(user)
-         axios.post("https://realbackendg18.onrender.com/register/register",user).then(response =>{
+         axios.post("https://backendreal.onrender.com/register/register",user).then(response =>{
                 console.log(response.data.status)
                 if(response.data.status==="ok"){
                             window.location.href="/"
