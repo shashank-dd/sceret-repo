@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -88,58 +89,134 @@ let Register = () => {
 }
 export default Register
 
+const express=require("express")
 
+let bodyParser = require('body-parser')
+const Login =require("../models/login.js")
+const bcrypt = require('bcrypt');
+var jwt = require('jsonwebtoken');
+route=express.Router();
+const cors = require("cors")
+route.use(cors({
+    origin: "*",
+}))
 
-/* import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import './Register.css'
-let Register = () =>{
-    let [email,setemail] = useState(" ")
-    let [password,setpassword] = useState(" ");
-    let [confirmpassword,setconfirm] = useState(" ");
-    let Handlesubmit = async (event) =>{
-        event.preventDefault();
-        let registerdetails = new FormData();
-        registerdetails.append('email',email)
-        registerdetails.append('password',password)
-        registerdetails.append('confirmpassword',confirmpassword);
+route.use(express.json())
+route.use(bodyParser.json())
+route.use(bodyParser.urlencoded())
+/* route.post('/register',async (req, res) =>{
+    try{
+        const {email,password,confirmpassword} = req.body;
+        let exist = await Login.findOne({email})
+        if(exist){
+            return res.status(400).send('User Already Exist')
+        }
+        if(password !== confirmpassword){
+            return res.status(400).send('Passwords are not matching');
+        }
+        let newUser =  await Login.create({
+           
+            email,
+            password,
+            confirmpassword
+        })
+        await newUser.save();
+        res.status(200).send('Registered Successfully')
         
-        await fetch("http://localhost:5000/users",{method: 'post', body: registerdetails}).then((res) => res.json()).then((data) => { console.log(data); }).catch((e) => console.log(e))
-        console.log(email,password,confirmpassword)
+
+    }
+    catch(err){
+        console.log(err)
+        return res.status(500).send('Internel Server Error')
+    }
+})
+ */
+route.post('/register', async (req, res) => {
+    try {
+        console.log("its coming")
+        console.log(req.body)
+        const { email, password, confirmpassword } = req.body;
+        
+        let userData = await Login.findOne({ email :email });
+        if (userData) {
+            return res.status(409).json({
+                status: "Failed",
+                message: "User already exists with the given email"
+            })
+        }
+        console.log(password,confirmpassword)
+        if (password !== confirmpassword) {
+            return res.status(400).send('Passwords are not matching');
+        }
+
+        bcrypt.hash(password, 10, async function (err, hash) {
+            // Store hash in your password DB.
+            if (err) {
+                return res.status(500).json({
+                    status: "Failed",
+                    message: err.message
+                })
+            }
+            userData = await Login.create({
+                email: email,
+                password: hash
+            });
+            res.json({
+                status: "ok",
+               
+                
+            })
+        })
+    }
+    catch (e) {
+        res.json({
+            status: "Failed",
+            message: e.message
+        })
+    }
+});
+module.exports= route;
+
+
+ /* route.post('/register',async (req,res)=>{
+    try{
+       console.log(req.body)
+        
+    let user = await login.findOne({email:req.body.email})
+    console.log(user,1)
+    if(user){
+       return  res.status(409).json({
+            status:'failure',
+            message:'user already exists with the given email'
+        })
+    }
+    console.log("ppppp")
+    // bcrypt.hash(password,10,async function(err,hash){
+    //     if(err){
+    //         return res.status(500).json({
+            
+    //             status:'failed',
+    //             message:err.message
+    //         })
+    //     }
+    console.log("going")
+    const use = await login.create({
+        
+        email:req.body.email,
+        password:req.body.password
+    });
+    
+    res.json({
+        status:'sucesss',
+        message:use})
+    
+    }
+    catch(e){
+        res.json({
+            status:'failure',
+            message:e.message
+        })
     }
 
-   return(
-        <div className="card-containers">
-            <pre>{JSON.stringify({email,password,confirmpassword})}</pre>
-           
-                <form onSubmit={Handlesubmit}>
-                <div className="registers">
-                <div>
-                   <h1 className="logos">Logo</h1>
-
-                </div>
-                <div className="creates">Create New Account </div>
-                <div>
-                    <input type="text" placeholder="MaildID"  onChange={(e)=>{setemail(e.target.value)}}/>
-                </div>
-                <div>
-                    <input type="text" placeholder="Password"  onChange={(e)=>{setpassword(e.target.value)}}/>
-                </div>
-                <div>
-                    <input type="text" placeholder="ConformPassword" onChange={(e)=>{setconfirm(e.target.value)}}/>
-                </div>
-              <button className="buttons" >Signup</button>   
-                </div>
-                </form>
-                <div className="child-div">
-                    <Link   to="/"><p>signIn</p></Link>
-                </div>
-              
-          
-        </div>
-    )
-
-}
-export default Register */
+ })
+ */
