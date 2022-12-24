@@ -19,6 +19,7 @@ function HomePage() {
     const [dta,setdta]=useState([])
     const [ta,setta]=useState([])
     const[name,setname]=useState("")
+    const[gl,setgl]=useState("")
    
     let navigate = useNavigate()
 useEffect(()=>{
@@ -27,6 +28,7 @@ useEffect(()=>{
         setdta(response.data.dat)
         console.log("dta",dta)
         setname(response.data.user)
+        setgl(response.data.userid)
         setta(response.data.dat)
 }).catch(error =>{console.log(error)})
    },[])
@@ -60,7 +62,7 @@ return (
             </div>
             <div className='div2'>
                 <div className='header'>
-                    <div className='userid'><p>USER ID : 06PPD2357</p></div>
+                    <div className='userid'><p>{gl}</p></div>
                     <div className='user'>
                         <img src={user} alt="7" />
                         <select onChange={logoutHandler}>
