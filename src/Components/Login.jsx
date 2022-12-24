@@ -18,6 +18,9 @@ let Login = () =>{
       axios.post("https://backendreal.onrender.com/login/login",details).then(response =>{
         console.log(response)
         console.log(response.data)
+        if(response.status==400){
+            alert(response.data.message)
+        }
         if(response.data.Status === "ok"){
             alert('login successfull')
             window.localStorage.setItem("token",response.data.token)

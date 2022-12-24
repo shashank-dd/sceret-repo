@@ -17,36 +17,34 @@ import axios from "axios";
 function HomePage() {
     
     const [dta,setdta]=useState([])
+    const [ta,setta]=useState([])
     const[name,setname]=useState("")
-    const [isLoggedin, setIsLoggedin] = useState(false)
+   
     let navigate = useNavigate()
 useEffect(()=>{
     axios.post("https://backendreal.onrender.com/data/data",{token:window.localStorage.getItem("token")}).then(response =>{
        console.log(response.data.dat)
         setdta(response.data.dat)
+        console.log("dta",dta)
         setname(response.data.user)
+        setta(response.data.dat)
 }).catch(error =>{console.log(error)})
    },[])
 const onchangehandler =(e)=>{
     if(e.target.value === ""){
-        navigate("/homepage")
-        const temparr = dta
-        setdta(temparr)
+        setta(dta)
+    
         return
     }
-   const search =  dta.filter(item=>item.PPDID.toLocaleLowerCase().startsWith(e.target.value.toLocaleLowerCase()))
-   setdta(search)
+   const search =  dta.filter(item=>item.PPDID.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase()))
+   setta(search)
   }
  let logoutHandler = () =>{
-        if(window.localStorage.getItem){
-            setIsLoggedin(true)
-        }
-        else{
+    console.log(1)
             window.localStorage.removeItem('token')
-            setIsLoggedin(false)
+         
             navigate("/")
-        }
-    }
+         }
 return (
         <div className='homepage'>
             <div className='div1'>
@@ -65,10 +63,10 @@ return (
                     <div className='userid'><p>USER ID : 06PPD2357</p></div>
                     <div className='user'>
                         <img src={user} alt="7" />
-                        <select>
+                        <select onChange={logoutHandler}>
                             <option selected>{name}</option>
                             <option>Logout</option>
-                            <option ><button onClick={logoutHandler}>LogOut</button></option>
+                           
                         </select>
                     </div>
                 </div>
@@ -100,7 +98,7 @@ return (
                             </th>
                         </thead>
                         <div className='mml'>
-                            {dta&& dta.map((obj,index)=>{
+                            {ta&& ta.map((obj,index)=>{
                                 return  <div className='jml' key={index}>
                                  <div className='fk'>{obj.PPDID}</div>
                                 <div className='fk'><img id='gal' src={gallery} alt="gal"/></div>
