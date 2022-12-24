@@ -1,12 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import eyeicon from './images/eyeicon1.png'
 import { Link, useNavigate } from "react-router-dom";
 import './Login.css'
 
 let Login = () =>{
     const navigate=useNavigate()
     let [details,setdetails] = useState({email:"",password:""})
+    let [isRevealed,setIsReaveled] = useState(false)
     let Changehandler = (e)=>{
         setdetails({
             ...details,
@@ -16,18 +18,17 @@ let Login = () =>{
      function submitHandler (){
         console.log(details)
       axios.post("https://backendreal.onrender.com/login/login",details).then(response =>{
-        console.log(response)
-        console.log(response.data)
-        if(response.status==400){
-            alert(response.data.message)
-        }
+        
+        console.log(response.data.status)
+
+        
         if(response.data.Status === "ok"){
             alert('login successfull')
             window.localStorage.setItem("token",response.data.token)
             navigate("/homepage")
             // window.location.href="/homepage"
           }
-    }).catch(error =>{console.log(error)})
+    }).catch(error =>{alert("password and email are not matching")})
    }
      return(
         <div className="Login-containerz">
@@ -40,7 +41,8 @@ let Login = () =>{
                     <input type="text" placeholder="MaildID" name="email" onChange={Changehandler} />
                 </div>
                 <div>
-                    <input type="text" placeholder="Password" name='password' onChange={Changehandler} />
+                    <input type={isRevealed ? "text" :"password"} placeholder="Password" name='password' onChange={Changehandler}  />
+                    <img id="hide" src={eyeicon} alt="eyecon" onClick={()=> setIsReaveled(prevState => !prevState)} />
                 </div>
                 <button className="buttonz" onClick={submitHandler}>SignIn</button>
                 <div >

@@ -1,12 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import eyeicon from './images/eyeicon1.png'
 import { Link, useNavigate } from "react-router-dom";
 import './Register.css'
 
 let Register = () => {
     const navigate = useNavigate()
     let [user, setusers] = useState({ email: "", password: "", confirmpassword: "" })
+    let [isRevealed,setIsReaveled] = useState(false)
+    let [pwd,setpwd] = useState(false)
 
     function submithandler(e) {
         console.log("1")
@@ -59,11 +62,13 @@ let Register = () => {
                     <input type="email" placeholder="MaildID" onChange={(e) => { setusers({ ...user, email: e.target.value }) }} />
                 </div>
                 <div>
-                    <input type="password" placeholder="Password" onChange={(e) => { setusers({ ...user, password: e.target.value }) }} />
+                    <input type={isRevealed ? "text" :"password"} placeholder="Password"  onChange={(e) => { setusers({ ...user, password: e.target.value }) }}  />
+                    <img id="hides" src={eyeicon} alt="eyecon" onClick={()=> setIsReaveled(prevState => !prevState)} />
                 </div>
                 <div>
-                    <input type="password" placeholder="ConformPassword" onChange={(e) => { setusers({ ...user, confirmpassword: e.target.value }) }} />
-                </div>
+                    <input type={pwd ? "text" :"password"} placeholder="ConfirmPassword" onChange={(e) => { setusers({ ...user, confirmpassword: e.target.value }) }}/>
+                    <img id="hidez" src={eyeicon} alt="eyecon" onClick={()=> setpwd(prevState => !prevState)} />
+                    </div>
                 <button className="buttons" onClick={submithandler} >Signup</button>
             </div>
             <div className="child-div">
