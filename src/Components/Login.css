@@ -13,6 +13,7 @@
     background-color: white;
     margin: 60px auto;
     padding: 20px;
+    position: relative;
 }
 .Loginz input{
     margin: 10px ;
@@ -23,6 +24,12 @@
     margin-left: 40px;
 
 
+}
+#hide{
+    position: absolute;
+    width: 25px;
+    left: 320px;
+    top: 225px;
 }
 .createz{
     text-align: center;
